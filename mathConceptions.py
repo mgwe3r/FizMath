@@ -36,17 +36,17 @@
 
 class Temp:
     @staticmethod
-    def celsius_to_fahrenheit(temp_celsius:float = 0):
+    def celsius_to_fahrenheit(temp_celsius:float):
         user_inp = input("Введите температуру в цельсиях: ")
-        if user_inp == "":
+        if user_inp == "" and temp_celsius != None:
             user_inp = temp_celsius
         result = (float(user_inp) * 9/5) + 32
         print(f"Результат перевода температуры с цельсия в фаренгейт: {result}")
 
     @staticmethod
-    def fahrenheit_to_celsius(temp_fahrenheit:float = 0):
+    def fahrenheit_to_celsius(temp_fahrenheit:float):
         user_inp = input("Введите температуру в фаренгейтах: ")
-        if user_inp == "":
+        if user_inp == "" and temp_fahrenheit != None:
             user_inp = temp_fahrenheit
         result = (float(user_inp) - 32) * 5/9
         print(f"Результат перевода температуры с фаренгейта в цельсии: {result}")
@@ -57,40 +57,52 @@ class Temp:
 
 class MetricToEnglishConverter:
     @staticmethod
-    def miles_to_kilometers():
-        user_inp = float(input("Введите мили: "))
-        result = user_inp * 1.60934
-        print(f"Результат перевода милей в километры: {result}")
+    def miles_to_kilometers(miles:float):
+        user_inp = input("Введите мили: ")
+        if user_inp == "" and miles != None:
+            user_inp = miles
+        result = float(user_inp) * 1.60934
+        print(f"Результат перевода милей в километры: {round(result, 4)}")
 
     @staticmethod
-    def kilometers_to_miles():
-        user_inp = float(input("Введите километры: "))
+    def kilometers_to_miles(kilometers:float):
+        user_inp = input("Введите километры: ")
+        if user_inp == "" and kilometers != None:
+            user_inp = kilometers
         result = user_inp * 0.621371
-        print(f"Результат перевода километров в мили: {result}")
+        print(f"Результат перевода километров в мили: {round(result, 4)}")
 
     @staticmethod
-    def gallons_to_liters():
-        user_inp = float(input("Введите галлоны: "))
-        result = user_inp * 3.78541
-        print(f"Результат перевода галлонов в литры: {result}")
+    def gallons_to_liters(gallons:float):
+        user_inp = input("Введите галлоны: ")
+        if user_inp == "" and gallons != None:
+            user_inp = gallons
+        result = float(user_inp) * 3.78541
+        print(f"Результат перевода галлонов в литры: {round(result, 4)}")
 
     @staticmethod
-    def liters_to_gallons():
-        user_inp = float(input("Введите литры: "))
-        result = user_inp * 0.264172
-        print(f"Результат перевода литров в галлоны: {result}")
+    def liters_to_gallons(liters:float):
+        user_inp = input("Введите литры: ")
+        if user_inp == "" and liters != None:
+            user_inp = liters
+        result = float(user_inp) * 0.264172
+        print(f"Результат перевода литров в галлоны: {round(result, 4)}")
 
     @staticmethod
-    def pounds_to_kilograms():
-        user_inp = float(input("Введите фунты: "))
-        result = user_inp * 0.45359237
-        print(f"Результат перевода фунтов в килограммы: {result}")
+    def pounds_to_kilograms(pounds:float):
+        user_inp = input("Введите фунты: ")
+        if user_inp == "" and pounds != None:
+            user_inp = pounds
+        result = float(user_inp) * 0.45359237
+        print(f"Результат перевода фунтов в килограммы: {round(result, 4)}")
 
     @staticmethod
-    def kilograms_to_pounds():
-        user_inp = float(input("Введите килограммы: "))
-        result = user_inp / 0.45359237
-        print(f"Результат перевода килограммов в фунты: {result}")
+    def kilograms_to_pounds(kilograms:float):
+        user_inp = input("Введите килограммы: ")
+        if user_inp == "" and kilograms != None:
+            user_inp = kilograms
+        result = float(user_inp) / 0.45359237
+        print(f"Результат перевода килограммов в фунты: {round(result, 4)}")
 
 # MetricToEnglishConverter.miles_to_kilometers()
 # MetricToEnglishConverter.kilometers_to_miles()
@@ -129,14 +141,14 @@ class Fraction:
         new_denominator = self.__denominator * other_fraction.__denominator
         return Fraction(new_numerator,new_denominator)
 
-    def multi(self, other_fraction): # функция умножения дробей
-        new_numerator = self.__numerator * other_fraction.__denominator * other_fraction.__numerator * self.__denominator
+    def mult(self, other_fraction): # функция умножения дробей
+        new_numerator = self.__numerator * other_fraction.__numerator
         new_denominator = self.__denominator * other_fraction.__denominator
         return Fraction(new_numerator, new_denominator)
 
     def div(self, other_fraction): # функция деления дробей
-        new_numerator = self.__numerator * other_fraction.__denominator / other_fraction.__numerator * self.__denominator
-        new_denominator = self.__denominator * other_fraction.__denominator
+        new_numerator = self.__numerator * other_fraction.__denominator
+        new_denominator = self.__denominator * other_fraction.__numerator
         return Fraction(new_numerator, new_denominator)
 
 # fraction1 = Fraction(1,4)
