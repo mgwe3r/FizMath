@@ -26,14 +26,17 @@ from mathConceptions import *
 
 # тест для класса Fraction
 
-# fraction1 = Fraction(4,8)
-# fraction2 = Fraction(1,2)
-# fraction3 = fraction1.add(fraction2)
-# fraction3.display()
-# fraction4 = fraction1.sub(fraction2)
-# fraction4.display()
-# fraction5 = fraction1.mult(fraction2)
-# fraction5.display()
-# fraction6 = fraction1.div(fraction2)
-# fraction6.display()
+fraction1 = Fraction(4,8)
+fraction2 = Fraction(1,2)
+fraction3 = fraction1.add(fraction2)
+fraction3.display()
+fraction4 = fraction1.sub(fraction2)
+fraction4.display()
+fraction5 = fraction1.mult(fraction2)
+fraction5.display()
+fraction6 = fraction1.div(fraction2)
+fraction6.display()
+fraction7 = Fraction(3,9)
+fraction7.display()
+
 

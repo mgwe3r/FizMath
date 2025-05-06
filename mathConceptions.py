@@ -129,17 +129,18 @@ class Fraction:
         self.__denominator = denominator
 
     def display(self):
-        print(f"{self.__numerator} / {self.__denominator}")
+        reduce_fraction = self.__reduce()
+        print(f"{reduce_fraction.__numerator} / {reduce_fraction.__denominator}")
 
     def add(self, other_fraction): # функция сложения дробей
         new_numerator = self.__numerator * other_fraction.__denominator + other_fraction.__numerator * self.__denominator
         new_denominator = self.__denominator * other_fraction.__denominator
-        return Fraction(new_numerator, new_denominator)
+        return Fraction(new_numerator,new_denominator)
 
     def sub(self, other_fraction): # функция вычитания дробей
         new_numerator = self.__numerator * other_fraction.__denominator - other_fraction.__numerator * self.__denominator
         new_denominator = self.__denominator * other_fraction.__denominator
-        return Fraction(new_numerator,new_denominator)
+        return Fraction(new_numerator, new_denominator)
 
     def mult(self, other_fraction): # функция умножения дробей
         new_numerator = self.__numerator * other_fraction.__numerator
@@ -150,6 +151,17 @@ class Fraction:
         new_numerator = self.__numerator * other_fraction.__denominator
         new_denominator = self.__denominator * other_fraction.__numerator
         return Fraction(new_numerator, new_denominator)
+
+    def __NOD(self) -> int:
+        x, y = self.__numerator, self.__denominator
+        while y:
+            x, y = y, x % y
+        return x
+
+    def __reduce(self):
+        nod = self.__NOD()
+        reduce_fraction = Fraction(self.__numerator // nod, self.__denominator // nod)
+        return reduce_fraction
 
 # fraction1 = Fraction(1,4)
 # fraction1.display()
